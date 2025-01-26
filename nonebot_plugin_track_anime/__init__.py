@@ -20,7 +20,7 @@ __plugin_meta__ = PluginMetadata(
     description="通过mikan project进行每日番剧推送： /追番 ",
     usage="发送 /animeh 查看帮助",
     type="application",
-    homepage="https://github.com/lbsucceed/nonebot_plugin_track_anime",
+    homepage="https://github.com/lbsucceed/nonebot-plugin-track-anime",
     config=Config,
     supported_adapters={"~onebot.v11"}
 )
