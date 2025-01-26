@@ -21,9 +21,8 @@ __plugin_meta__ = PluginMetadata(
     usage="发送 /animeh 查看帮助",
     type="application",
     homepage="https://github.com/lbsucceed/nonebot_plugin_track_anime",
-    supported_adapters={"~onebot.v11"},
     config=Config,
-    extra={"author": "lbsucceed"}
+    supported_adapters={"~onebot.v11"}
 )
 
 
