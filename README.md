@@ -1,7 +1,7 @@
 <div align="center">
-  <a href="https://v2.nonebot.dev/store"><img src="https://github.com/A-kirami/nonebot-plugin-track-anime/blob/resources/nbp_logo.png" width="180" height="180" alt="NoneBotPluginLogo"></a>
+  <a href="https://v2.nonebot.dev/store"><img src="https://github.com/A-kirami/nonebot-plugin-template/blob/resources/nbp_logo.png" width="180" height="180" alt="NoneBotPluginLogo"></a>
   <br>
-  <p><img src="https://github.com/A-kirami/nonebot-plugin-track-anime/blob/resources/NoneBotPlugin.svg" width="240" alt="NoneBotPluginText"></p>
+  <p><img src="https://github.com/A-kirami/nonebot-plugin-template/blob/resources/NoneBotPlugin.svg" width="240" alt="NoneBotPluginText"></p>
 </div>
 
 <div align="center">
@@ -21,8 +21,7 @@ _✨ NoneBot 插件简单描述 ✨_
 ## 📖 介绍
 
 这是一个用于追番的工具，访问mikanani.me进行使用，力求简单易用。
->[!NOTE]
->本插件需要机器人所在网络环境能够访问mikanani.me
+本插件需要机器人所在网络环境能够访问mikanani.me
 
 
 ## 💿 安装
