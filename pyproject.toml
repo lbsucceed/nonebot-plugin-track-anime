@@ -1,5 +1,5 @@
 [project]
-name = "nonebot_plugin_track_anime"
+name = "nonebot-plugin-track-anime"
 authors = [{name = "lbsucceed", email = "woaikanpika123@gmail.com"}]
 readme = "README.md"
 license = {file = "LICENSE"}
