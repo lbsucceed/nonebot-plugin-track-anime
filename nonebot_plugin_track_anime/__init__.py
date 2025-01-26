@@ -72,7 +72,8 @@ async def _(state: T_State):
             description = f"{selected_bangumi.rating_score} ({selected_bangumi.rating_description})"
             shoot = selected_bangumi.shoot
             await track.finish(
-                f"{name}"+"\n"
+                f"{link}"+"\n"
+                +f"{name}"+"\n"
                 + f"{description}"+"\n"
                 + (("-" * 30))+"\n"
                 + MessageSegment.image(f"base64://{image_base64}")+"\n"
