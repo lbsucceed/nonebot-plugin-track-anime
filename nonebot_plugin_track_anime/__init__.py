@@ -18,7 +18,7 @@ from .anime import get_homepage
 __plugin_meta__ = PluginMetadata(
     name="追番小工具",
     description="通过mikan project进行每日番剧推送： /追番 ",
-    usage="发送 /animeh 查看帮助",
+    usage="发送 /追番 进行指令推送",
     type="application",
     homepage="https://github.com/lbsucceed/nonebot-plugin-track-anime",
     config=Config,
