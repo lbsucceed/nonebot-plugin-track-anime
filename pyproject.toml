@@ -1,0 +1,29 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "nonebot_plugin_track_anime"
+authors = [{name = "lbsucceed", email = "woaikanpika123@gmail.com"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dependencies = [
+    "nonebot2>=2.1.1",
+    "nonebot-adapter-onebot>=2.3.1",
+]
+description = "a tracking anime tool"
+version = "0.1.0"
+
+[project.urls]
+Home = "https://github.com/lbsucceed/nonebot-plugin-track-anime"
+"Bug Tracker" = "https://github.com/lbsucceed/nonebot-plugin-track-anime/issues"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+nonebot2 = ">=2.2.0"
+nonebot-adapter-onebot = "^2.4.4"
+Pillow = "^9.4.0"
+beautifulsoup4 = "^4.11.2"
+playwright = "^1.28.1"
+requests = "^2.25.1"
