@@ -10,7 +10,7 @@ from nonebot.adapters.onebot.v11 import (
 from playwright.async_api import async_playwright
 from PIL import Image
 from io import BytesIO
-import httpx
+import requests
 from .config import Config
 from .anime import get_homepage
 
@@ -61,12 +61,11 @@ async def _(state: T_State):
             name = selected_bangumi.name
             await selected_bangumi.fetch_bangumi_info(page)  
             url = selected_bangumi.poster_url
-            async with httpx.AsyncClient() as client:
-                response = await client.get(url)
-                image = Image.open(BytesIO(response.content))
-                with BytesIO() as buffer:
-                    image.save(buffer, format="PNG")
-                    image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
+            response = requests.get(url)
+            image = Image.open(BytesIO(response.content)) 
+            with BytesIO() as buffer:
+                image.save(buffer, format="PNG")  
+                image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
 
             link = selected_bangumi.bangumi_link
             description = f"{selected_bangumi.rating_score} ({selected_bangumi.rating_description})"
