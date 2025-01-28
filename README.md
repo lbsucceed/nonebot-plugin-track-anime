@@ -4,7 +4,7 @@
   <p><img src="https://github.com/A-kirami/nonebot-plugin-template/blob/resources/NoneBotPlugin.svg" width="240" alt="NoneBotPluginText"></p>
 </div>
 
-<!-- <div align="center"> -->
+<div align="center">
 
 # nonebot-plugin-track-anime
 
@@ -17,6 +17,7 @@ _✨ NoneBot 插件简单描述 ✨_
     <img src="https://img.shields.io/pypi/v/nonebot-plugin-track-anime.svg" alt="pypi">
 </a>
 <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="python">
+</div>
 
 ## 📖 介绍
 
