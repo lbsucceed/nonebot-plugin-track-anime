@@ -6,7 +6,9 @@ import asyncio
 from .config import Config
 config = Config()
 
-_mikan_url = config._mikan_url
+from nonebot.log import logger
+
+_mikan_url = config.mikan_url
 
 class Bangumi:
     def __init__(self, name: str, update_time: datetime.date, url: str):
@@ -22,7 +24,7 @@ class Bangumi:
     async def fetch_bangumi_info(self, page):
         """从番剧的 URL 中提取 Bangumi 番组计划链接，并获取评分信息"""
         if not self.url:
-            print(f"No URL found for {self.name}")
+            logger.error(f"No URL found for {self.name}")
             return
 
         # 使用 Playwright 访问番剧详情页
@@ -51,7 +53,7 @@ class Bangumi:
                 self.rating_score = await rating_score.inner_text()
                 self.rating_description = await rating_description.inner_text()
             else:
-                print(f"No rating found for {self.name}")
+                logger.error(f"No rating found for {self.name}")
             target_div = page.locator('div.subject_tag_section')
             await target_div.wait_for(state='visible')
             div = await target_div.screenshot()
@@ -112,11 +114,11 @@ class HomePage:
                 img_tag = a_tag.find("img")  # 找到图片标签
                 img_src = img_tag["data-src"] if img_tag and "data-src" in img_tag.attrs else None  # 提取图片链接
 
-                # 创建 Bangumi 对象并添加到目标列表
+                
                 bangumi = Bangumi(
                     name=title,
-                    update_time=datetime.date.today(),  # 如果没有日期信息，使用当前日期
-                    url=_mikan_url + a_tag["href"] if a_tag["href"] else None  # 拼接完整 URL
+                    update_time=datetime.date.today(),  
+                    url=_mikan_url + a_tag["href"] if a_tag["href"] else None  
                 )
                 bangumi.poster_url = _mikan_url+img_src  # 添加图片链接
                 target.append(bangumi)

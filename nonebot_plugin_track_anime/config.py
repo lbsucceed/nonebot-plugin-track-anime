@@ -1,3 +1,3 @@
 from pydantic import BaseModel
 class Config(BaseModel):
-    _mikan_url = "http://mikanani.me"
+    mikan_url : str = "http://mikanani.me"  # 如果连接不上，可换镜像站
