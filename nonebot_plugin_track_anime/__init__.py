@@ -1,12 +1,10 @@
 import base64
-from nonebot import on_command
-from nonebot.plugin import PluginMetadata
-from nonebot.adapters import Message
+from nonebot import on_command, require
+from nonebot.plugin import PluginMetadata, inherit_supported_adapters
 from nonebot.typing import T_State
-from nonebot.adapters.onebot.v11 import (
-    Message,
-    MessageSegment
-)
+from nonebot.adapters import Event
+require("nonebot_plugin_saa")
+from nonebot_plugin_saa import Image, Text, MessageFactory
 from playwright.async_api import async_playwright
 import httpx
 import asyncio
@@ -23,7 +21,7 @@ __plugin_meta__ = PluginMetadata(
     type="application",
     homepage="https://github.com/lbsucceed/nonebot-plugin-track-anime",
     config=Config,
-    supported_adapters={"~onebot.v11"}
+    supported_adapters=inherit_supported_adapters("nonebot_plugin_saa"),
 )
 
 
@@ -69,7 +67,9 @@ async def _(state: T_State):
         message = ""
         for idx, bangumi in enumerate(target_list, start=1):
             message += f"{idx}. {bangumi.name}\n"
-        await track.send(Message(message))
+        animeList = MessageFactory([Text(message)])
+        await animeList.send()
+        # await track.send()
         state["page"] = page
         state["target_list"] = target_list
         state["browser"] = browser
@@ -98,16 +98,16 @@ async def _(state: T_State):
                 link = selected_bangumi.bangumi_link
                 description = f"{selected_bangumi.rating_score} ({selected_bangumi.rating_description})"
                 shoot = selected_bangumi.shoot
-
-                await track.finish(
-                    f"{link}\n"
+                details = MessageFactory([Text(f"{link}\n"
                     + f"{name}\n"
                     + f"{description}\n"
-                    + ("-" * 30) + "\n"
-                    + MessageSegment.image(f"base64://{image_base64}") + "\n"
-                    + ("-" * 30) + "\n"
-                    + MessageSegment.image(f"base64://{shoot}")
-                )
+                    + ("-" * 30) + "\n"),
+                    Image((f"base64://{image_base64}")),
+                    Text( "\n"
+                    + ("-" * 30) + "\n"),
+                    Image(f"base64://{shoot}")])
+                await details.send()
+                await track.finish()
 
             except httpx.HTTPError as e:
                 await track.finish(f"获取图片失败: {e}")

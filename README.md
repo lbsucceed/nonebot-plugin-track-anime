@@ -76,3 +76,7 @@ _✨ NoneBot 插件简单描述 ✨_
 <div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: #7d637a; background-color: #f6edf5; border-color: #f1e4f0;">
 &#x1F4AC<b> 备注：欢迎来提issue和建议。</b>
 </div>
+
+## 🎉 更新记录
+>2025/2/10  
+>更新以适配大部分adapter
